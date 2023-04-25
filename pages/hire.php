@@ -45,6 +45,7 @@ include "navbar.php";
 
         </form>
         <img src="../img/7efs.gif" id="success" alt="">
+        <h1 class="text-center" id="return_link"><a href="../index.php">continue on website</a></h1>
     </div>
     <div class="bg-primary-subtle text-center py-5 container-6">
         <h1> UI Portfolio</h1>
@@ -59,6 +60,8 @@ include "navbar.php";
 
         <script>
         $(document).ready(function(){
+            
+            $("#return_link").hide();
             $("#success").hide();
         $("#submit").click(function(e){
             e.preventDefault();
@@ -76,7 +79,13 @@ include "navbar.php";
                     if(r=1){
                         $('#responce').text('thank you for connect with us').addClass("bg-success py-5 text-white");
                         $('#form').hide();
+                        
                         $("#success").show();
+                        setTimeout(function(){
+                            $("#success").fadeOut("slow");
+                            $("#return_link").show();
+
+                },2000);
 
                     }
                     else{
